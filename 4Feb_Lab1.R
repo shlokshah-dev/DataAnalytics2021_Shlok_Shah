@@ -83,6 +83,12 @@ tf
 EPI_Filtered <- EPI[!tf]
 EPI_Filtered
 
-### Exploring the distribution ##
+### Exploring the EPI distribution ##
 summary(EPI)
 fivenum(EPI,na.rm=TRUE)
+stem(EPI) #generates stem and leaf plot
+hist(EPI)
+hist(EPI, seq(30., 95., 1.0), prob=TRUE)
+lines(density(EPI,na.rm = TRUE,bw=1))
+lines(density(EPI,na.rm = TRUE,bw="SJ"))
+rug(EPI)

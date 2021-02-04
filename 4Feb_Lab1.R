@@ -92,3 +92,19 @@ hist(EPI, seq(30., 95., 1.0), prob=TRUE)
 lines(density(EPI,na.rm = TRUE,bw=1))
 lines(density(EPI,na.rm = TRUE,bw="SJ"))
 rug(EPI)
+
+### Fitting a distribution beyond histograms ##
+
+# Empirical Cumulative Distribution Function
+plot(ecdf(EPI), do.points=FALSE, verticals = TRUE)
+help(ecdf)
+
+# Quantile-Quantile
+par(pty="s")
+qqnorm(EPI); qqline(EPI)
+
+x <- seq(30,95,1)
+qqplot(qt(ppoints(250), df = 5),x,
+       xlab = "Q-Q plot for t dsn")
+qqline(x)
+help(seq)

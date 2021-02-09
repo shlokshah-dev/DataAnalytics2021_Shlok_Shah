@@ -108,3 +108,58 @@ qqplot(qt(ppoints(250), df = 5),x,
        xlab = "Q-Q plot for t dsn")
 qqline(x)
 help(seq)
+
+
+########################## Exploring and Fitting AIR_H Variable ###################
+attach(epi2010Data)
+summary(AIR_H)
+fivenum(AIR_H,na.rm=TRUE)
+stem(AIR_H) #generates stem and leaf plot
+hist(AIR_H)
+lines(density(AIR_H,na.rm = TRUE,bw=1))
+lines(density(AIR_H,na.rm = TRUE,bw="SJ"))
+rug(AIR_H)
+
+
+#Removing unwanted elements from AIR_H
+air_h_no_na<-na.omit(AIR_H)
+View(air_h_no_na)
+
+# Empirical Cumulative Distribution Function
+plot(ecdf(air_h_no_na), do.points=FALSE, verticals = TRUE)
+
+# Quantile-Quantile
+par(pty="m")
+qqnorm(air_h_no_na); qqline(air_h_no_na)
+
+x <- seq(30,95,1)
+qqplot(qt(ppoints(250), df = 5),x,
+       xlab = "Q-Q plot for t dsn")
+qqline(x)
+
+
+########################## Exploring and Fitting BIODIVERSITY Variable ###################
+attach(epi2010Data)
+summary(BIODIVERSITY)
+fivenum(BIODIVERSITY,na.rm=TRUE)
+stem(BIODIVERSITY) #generates stem and leaf plot
+hist(BIODIVERSITY)
+lines(density(BIODIVERSITY,na.rm = TRUE,bw=1))
+lines(density(BIODIVERSITY,na.rm = TRUE,bw="SJ"))
+rug(BIODIVERSITY)
+
+#Removing unwanted elements from BIODIVERSITY
+biodiversity_no_na<-na.omit(BIODIVERSITY)
+View(BIODIVERSITY)
+
+# Empirical Cumulative Distribution Function
+plot(ecdf(biodiversity_no_na), do.points=FALSE, verticals = TRUE)
+
+# Quantile-Quantile
+par(pty="m")
+qqnorm(biodiversity_no_na); qqline(biodiversity_no_na)
+
+x <- seq(30,95,1)
+qqplot(qt(ppoints(250), df = 5),x,
+       xlab = "Q-Q plot for t dsn")
+qqline(x)
